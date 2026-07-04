@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="bot/bot.vcxproj" Id="723d0979-861d-46a0-bced-e5744ca9d30d" />
+</Solution>

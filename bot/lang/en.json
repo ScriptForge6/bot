@@ -1,0 +1,20 @@
+{
+  "language_name": "English",
+  "Error": {
+    "10001": "Node not found",
+    "10002": "Empty node",
+    "10003": "Orphaned node",
+    "20001": "Cannot open log file: {}",
+    "20002": "Logger is not running",
+    "50001": "Capacity must be greater than 0",
+    "60001": "Invalid pool size",
+    "70001": "The thread has already been running",
+    "70002": "No task function assigned to the thread",
+    "101": "Unknown error",
+    "102": "Missing argument for option {}",
+    "103": "Invalid argument {} for option {}",
+    "104": "Unknown option: {}",
+    "105": "Directory not found: {}"
+  },
+  "help": "Help information for the bot\n\n--help -h Show this help message\n--version -v Show version information\n--lang -l\n    set <language> Set language\n    dir <languageDir> Set language directory"
+}

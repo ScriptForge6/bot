@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{3d1fc7a1-55ca-4404-95ae-63ae65ae46a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\asio">
+      <UniqueIdentifier>{d2c31278-d317-4265-acc6-f53965343885}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp">
+      <UniqueIdentifier>{8d9d74cc-03fa-4fef-9c8b-bc947b4e4890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\base64">
+      <UniqueIdentifier>{9353d452-c0d8-42c3-8907-c4e3184e996e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\common">
+      <UniqueIdentifier>{70f4c61b-1971-467d-97c6-183bdeda4b4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\concurrency">
+      <UniqueIdentifier>{dd3fb12f-89d1-4ee3-9a51-cd275ee2b3be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\config">
+      <UniqueIdentifier>{ad09d735-8db4-487e-841d-a8e7afc1f534}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\extensions">
+      <UniqueIdentifier>{82efb50d-1532-4d5a-ac31-268f59042e9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\extensions\permessage_deflate">
+      <UniqueIdentifier>{aa3b71ae-6838-4c54-a4c0-cfaad19fe52a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\http">
+      <UniqueIdentifier>{c1a17714-cb80-419d-9323-598ce2868621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\http\impl">
+      <UniqueIdentifier>{a58ede5b-4663-4cce-8f9c-53e687c30e90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\impl">
+      <UniqueIdentifier>{cd47cf23-c76b-483b-a905-ec56f112af09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\logger">
+      <UniqueIdentifier>{1ddb9505-d3f9-4ae2-a58c-1b1d82012842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\message_buffer">
+      <UniqueIdentifier>{1ce5d536-008c-4a03-999f-282ef02c2c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\processors">
+      <UniqueIdentifier>{1b8ca4b2-09bd-4302-a087-67351918438e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\random">
+      <UniqueIdentifier>{a09159c2-d386-428b-afdc-9122ea99ddfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\roles">
+      <UniqueIdentifier>{9b8957d2-1367-49bc-a2ef-37d334a60053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\sha1">
+      <UniqueIdentifier>{a7103184-b234-4f8c-8be1-80a54cea3f98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\transport">
+      <UniqueIdentifier>{e318d792-47cb-416a-85d7-d06bc6eb2815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\transport\asio">
+      <UniqueIdentifier>{c76dd8d0-15ef-4aa9-b599-c55bd2e5be58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\transport\asio\security">
+      <UniqueIdentifier>{0aced373-ab1d-477e-9d23-c88a3413934e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\transport\base">
+      <UniqueIdentifier>{362e1240-f05b-46f2-9d1e-3c066d4cbab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\transport\debug">
+      <UniqueIdentifier>{5134684f-f3ca-4ebb-86c5-74ae6fbb6501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\transport\iostream">
+      <UniqueIdentifier>{0231cdee-b996-4e3b-8d96-5a6cc1eac2ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\websocketpp\transport\stub">
+      <UniqueIdentifier>{b0bdf5b8-84a0-43ed-b2af-02ae7d4358bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\Scriptforge">
+      <UniqueIdentifier>{5020d3af-23d0-4ac8-86f0-894a606b342a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\asio\asio">
+      <UniqueIdentifier>{516c27b8-895c-4457-bb5c-b9ba82d540aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\asio\asio\detail">
+      <UniqueIdentifier>{d2b2d1b0-af5f-4ebd-8f38-9831e2b638f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\asio\asio\detail\impl">
+      <UniqueIdentifier>{5fb72ebf-f149-429e-9460-12379e9786d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\json">
+      <UniqueIdentifier>{c2b29369-b289-4867-b639-2222906362a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\json\nlohmann">
+      <UniqueIdentifier>{d121551f-4503-4c61-8f19-11890ffa2a5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\utfcpp">
+      <UniqueIdentifier>{c616b026-c53c-478a-aa77-7bb08bfc896c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\utfcpp\utf8">
+      <UniqueIdentifier>{757b28a3-ab05-4b46-be6a-aa074070d42a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bot.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.Version.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.Pch.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="Version.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.Argv.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="Cli.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\json\json.cppm">
+      <Filter>ThirdParty\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.Err.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\ScriptForge.ErrCode.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.ErrCode.throwError.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.LanguageCode.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.Local.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.Msg.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.StringConversion.ixx">
+      <Filter>ThirdParty\Scriptforge</Filter>
+    </ClCompile>
+    <ClCompile Include="Lang.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ArgvCli.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrCode.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrCode.throwError.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\thirdParty\json\nlohmann\json.hpp">
+      <Filter>ThirdParty\json\nlohmann</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdParty\json\nlohmann\json_fwd.hpp">
+      <Filter>ThirdParty\json\nlohmann</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdParty\utf8\utf8.h">
+      <Filter>ThirdParty\utfcpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdParty\utf8\utf8\checked.h">
+      <Filter>ThirdParty\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdParty\utf8\utf8\core.h">
+      <Filter>ThirdParty\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdParty\utf8\utf8\cpp11.h">
+      <Filter>ThirdParty\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdParty\utf8\utf8\cpp17.h">
+      <Filter>ThirdParty\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdParty\utf8\utf8\cpp20.h">
+      <Filter>ThirdParty\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdParty\utf8\utf8\unchecked.h">
+      <Filter>ThirdParty\utfcpp\utf8</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lang\en.json">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="lang\zh.json">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>

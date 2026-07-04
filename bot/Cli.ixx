@@ -102,6 +102,7 @@ namespace Cli {
 		static constexpr std::string_view shortName = "-s";
 		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
 			LOG(Scriptforge::Msg::Message("Starting bot...", Scriptforge::Msg::InformationLevel::Info));
+
 		}
 	};
 }

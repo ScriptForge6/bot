@@ -37,3 +37,15 @@ namespace ErrCode {
 		return os;
 	}
 }
+export
+template<>
+struct std::formatter<ErrCode::ErrCode>
+{
+	constexpr auto parse(std::format_parse_context& ctx) {
+		return ctx.begin();
+	}
+	template<typename FmtCtx>
+	auto format(const ErrCode::ErrCode& code, FmtCtx& ctx) const {
+		return std::format_to(ctx.out(), "{}", ErrCode::to_string(code));
+	}
+};

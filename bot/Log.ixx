@@ -18,17 +18,40 @@
 
 export module Log;
 
+import Scriptforge.Msg;
 import Scriptforge.Pch;
+
+import FileOstream;
+import LogLevel;
 
 namespace Log {
     export 
         template <typename... Args>
-    void log(std::ostream& out1, std::ostream& out2, Args&&... args) {
+    void log(std::ostream& out1, std::ostream* out2, Args&&... args) {
         std::ostringstream buf;
         (buf << ... << std::forward<Args>(args));
         const std::string& log_text = buf.str();
 
         out1 << log_text << '\n';
-        out2 << log_text << '\n';
+        if (out2 != nullptr) {
+            *out2 << log_text << '\n';
+        }
     }
+	export
+		template <typename... Args>
+	void logNormal(Args&&... args) {
+        if (FileOstream::fileStreamPtr != nullptr) {
+            log(std::cerr, FileOstream::fileStreamPtr, std::forward<Args>(args)...);
+        }
+        else {
+            log(std::cerr, nullptr, std::forward<Args>(args)...);
+        }
+	}
+    export 
+		template <typename MessageT>
+	void logMessage(const MessageT& message) {
+		if (static_cast<int>(message.level()) >= static_cast<int>(logLevel)) {
+			logNormal(message);
+		}
+	}
 }

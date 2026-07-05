@@ -167,14 +167,17 @@ NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.StringConversion.ixx" />
     <ClCompile Include="..\thirdParty\Scriptforge\ScriptforgeLib\Scriptforge.Version.ixx" />
     <ClCompile Include="ArgvCli.ixx" />
+    <ClCompile Include="Boot.ixx" />
     <ClCompile Include="bot.cpp" />
+    <ClCompile Include="BotConfig.ixx" />
+    <ClCompile Include="Clean.ixx" />
     <ClCompile Include="Cli.ixx" />
     <ClCompile Include="ErrCode.ixx" />
     <ClCompile Include="ErrCode.throwError.ixx" />
     <ClCompile Include="FileOstream.ixx" />
     <ClCompile Include="Lang.ixx" />
     <ClCompile Include="Log.ixx" />
-    <ClCompile Include="Token.ixx" />
+    <ClCompile Include="LogLevel.ixx" />
     <ClCompile Include="Version.ixx" />
     <ClCompile Include="Websocket.ixx" />
   </ItemGroup>

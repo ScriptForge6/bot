@@ -177,6 +177,18 @@
     <ClCompile Include="Websocket.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Boot.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Clean.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LogLevel.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BotConfig.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\thirdParty\json\nlohmann\json.hpp">

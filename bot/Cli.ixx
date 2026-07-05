@@ -18,8 +18,6 @@
 
 module;
 
-#define LOG(...) Log::log(err, *FileOstream::fileStreamPtr, __VA_ARGS__)
-
 export module Cli;
 import Scriptforge.Msg;
 import Scriptforge.Local;
@@ -39,7 +37,7 @@ namespace Cli {
 	export 
 		struct Unknown {
 		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
-			LOG("Unknown command: ", arg);
+			Log::logMessage(Scriptforge::Msg::Message("Unknown command: "+ std::string(arg), Scriptforge::Msg::InformationLevel::Warning));
 		}
 	};
 
@@ -48,7 +46,7 @@ namespace Cli {
 		static constexpr std::string_view name = "--help";
 		static constexpr std::string_view shortName = "-h";
 		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
-			LOG(::Lang::langPtr->at<std::string>("help"));
+			Log::logMessage(Scriptforge::Msg::Message(::Lang::langPtr->at<std::string>("help"), Scriptforge::Msg::InformationLevel::Info));
 		}
 	};
 	
@@ -57,7 +55,7 @@ namespace Cli {
 		static constexpr std::string_view name = "--version";
 		static constexpr std::string_view shortName = "-v";
 		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
-			LOG(::Version::version.getVersion());
+			Log::logMessage(Scriptforge::Msg::Message(::Version::version.getVersion(), Scriptforge::Msg::InformationLevel::Info));
 		}
 	};
 	export 
@@ -101,8 +99,7 @@ namespace Cli {
 		static constexpr std::string_view name = "--start";
 		static constexpr std::string_view shortName = "-s";
 		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
-			LOG(Scriptforge::Msg::Message("Starting bot...", Scriptforge::Msg::InformationLevel::Info));
-
+			Log::logMessage(Scriptforge::Msg::Message("Starting bot...", Scriptforge::Msg::InformationLevel::Info));
 		}
 	};
 }

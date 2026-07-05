@@ -87,6 +87,7 @@ namespace Scriptforge {
 			requires { Clock::to_time_t(std::declval<typename Clock::time_point>()); }&&
 			requires { !std::is_same_v<Clock, std::chrono::steady_clock>; }
 		std::ostream& operator<<(std::ostream& os, const BasicError<CodeT, T, Clock>& error) {
+			// 拆分输出，不再把时区相关变量全部丢进std::format
 			auto tp = error.time();
 			auto zt = std::chrono::zoned_time{ std::chrono::current_zone(), tp };
 			auto local = zt.get_local_time();
@@ -94,17 +95,17 @@ namespace Scriptforge {
 			std::chrono::year_month_day ymd{ days };
 			std::chrono::hh_mm_ss      hms{ local - days };
 
-			// 拆分输出，不再把时区相关变量全部丢进std::format
-			os << "["
-				<< std::setw(4) << std::setfill('0') << static_cast<int>(ymd.year()) << "-"
-				<< std::setw(2) << std::setfill('0') << static_cast<unsigned>(ymd.month()) << "-"
-				<< std::setw(2) << std::setfill('0') << static_cast<unsigned>(ymd.day())
-				<< " "
-				<< std::setw(2) << std::setfill('0') << hms.hours().count() << ":"
-				<< std::setw(2) << std::setfill('0') << hms.minutes().count() << ":"
-				<< std::setw(2) << std::setfill('0') << hms.seconds().count()
-				<< "] [" << getInformationLevel(error.level())
-				<< "] [" << error.code() << "] " << error.message();
+			// 直接输出！安全！干净！
+			os << std::format("[{:04d}-{:02d}-{:02d} {:02d}:{:02d}:{:02d}] [{}] [{}] {}",
+				static_cast<int>(ymd.year()),
+				static_cast<unsigned>(ymd.month()),
+				static_cast<unsigned>(ymd.day()),
+				hms.hours().count(),
+				hms.minutes().count(),
+				hms.seconds().count(),
+				getInformationLevel(error.level()),
+				error.code(),
+				error.message());
 			return os;
 		}
 

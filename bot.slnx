@@ -3,5 +3,12 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/DOCS/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE.txt" />
+    <File Path="README.md" />
+    <File Path="README_CN.md" />
+  </Folder>
   <Project Path="bot/bot.vcxproj" Id="723d0979-861d-46a0-bced-e5744ca9d30d" />
 </Solution>

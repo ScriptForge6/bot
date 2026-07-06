@@ -2,7 +2,7 @@
 
 <h1>bot</h1>
 
-**Other Language:** [Chinese](README_CN.md)
+[README主版本(English)](README.md)
 
 </center>
 

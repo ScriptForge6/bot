@@ -193,6 +193,7 @@ NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     <ClInclude Include="..\thirdParty\utf8\utf8\unchecked.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="config.json" />
     <None Include="lang\en.json" />
     <None Include="lang\zh.json" />
   </ItemGroup>

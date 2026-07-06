@@ -10,5 +10,8 @@
     <File Path="README.md" />
     <File Path="README_CN.md" />
   </Folder>
+  <Folder Name="/GitHub_Actions/">
+    <File Path=".github/workflows/update-tree.yml" />
+  </Folder>
   <Project Path="bot/bot.vcxproj" Id="723d0979-861d-46a0-bced-e5744ca9d30d" />
 </Solution>

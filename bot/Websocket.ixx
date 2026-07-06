@@ -19,18 +19,29 @@
 module;
 
 #include <websocketpp/config/asio_no_tls.hpp>
-#include <websocketpp/server.hpp>
+#include <websocketpp/client.hpp>
 
 export module Websocket;
 
 import Scriptforge.Pch;
 
 namespace Websocket {
-	using WSserver = websocketpp::server<websocketpp::config::asio>;
+	using wsClient = websocketpp::client<websocketpp::config::asio>;
+	using wsMsgPtr = wsClient::message_ptr;
+	using wsConnHdl = websocketpp::connection_hdl;
+
+	class WsClient {
+	public:
+		WsClient();
+		WsClient(std::string_view address = internal::m_defaultAddress, size_t port = internal::m_defaultPort, std::optional<std::string_view> proxy = internal::m_defaultProxy);
+		WsClient(WsClient&) = delete;
+	private:
+
+	};
 	namespace internal {
 		WSserver server;
 		std::string m_defaultAddress{ "127.0.0.1" };
-		size_t m_defaultPort{ 8080 };
+		size_t m_defaultPort{ 3001 };
 		std::optional<std::string> m_defaultProxy{ std::nullopt };
 		std::string m_token;
 		std::string m_buffer;

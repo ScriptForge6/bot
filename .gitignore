@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 #config.json
 config.json
+
+!thirdParty/websocketpp/transport/debug/
+!thirdParty/websocketpp/transport/debug/**

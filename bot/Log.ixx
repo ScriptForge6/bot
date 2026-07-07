@@ -50,7 +50,10 @@ namespace Log {
     export 
 		template <typename MessageT>
 	void logMessage(const MessageT& message) {
-		if (static_cast<int>(message.level()) >= static_cast<int>(logLevel)) {
+		if (
+            static_cast<int>(message.level()) >= 
+            static_cast<int>(std::get<Scriptforge::Msg::InformationLevel>(logLevel))
+            ) {
 			logNormal(message);
 		}
 	}

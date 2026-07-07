@@ -16,5 +16,11 @@
     "104": "Unknown option: {}",
     "105": "Directory not found: {}"
   },
-  "help": "Help information for the bot\n\n--help -h Show this help message\n--version -v Show version information\n--lang -l\n    set <language> Set language\n    dir <languageDir> Set language directory"
+  "help": "Help information for the bot\n\n--help -h Show this help message\n--version -v Show version information\n--loglevel -logl\n    <loglevel> Set Log Level\n        loglevel:\n        Debug\n        Info\n        Warning\n        Error\n--lang -l\n    set <language> Set language\n    dir <languageDir> Set language directory\n--start -s Start WebSocket service",
+  "Debug": {
+    "CreatingWsServer": "Creating WsServer Object...[address: {}, port: {},token: {}, proxy: {}]"
+  },
+  "Info": {
+
+  }
 }

@@ -30,7 +30,9 @@ import ErrCode.throwError;
 import FileOstream;
 import Lang;
 import Log;
+import LogLevel;
 import Version;
+import Websocket;
 
 namespace Cli {
 	namespace fs = std::filesystem;
@@ -69,7 +71,7 @@ namespace Cli {
 			}
 			auto langArg = std::next(nextArg);
 			if(langArg == Argv::argvCliPtr->getArgv().end() || langArg->starts_with('-')) {
-				auto allOptions = *nextArg + " " + *langArg;
+				auto allOptions = std::string(arg) + " " + *nextArg;
 				ErrCode::throwError(ErrCode::ErrCode::MissingArgument, __func__, *::Lang::langPtr, Scriptforge::Msg::InformationLevel::Error, allOptions);
 			}
 			if (*nextArg == "set") {
@@ -93,13 +95,25 @@ namespace Cli {
 			}
 		}
 	};
-
+	export
+		struct LogLevel {
+		static constexpr std::string_view name = "--loglevel";
+		static constexpr std::string_view shortName = "-logl";
+		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
+			auto nextArg = std::next(it);
+			if (nextArg == Argv::argvCliPtr->getArgv().end() || nextArg->starts_with('-')) {
+				ErrCode::throwError(ErrCode::ErrCode::MissingArgument, __func__, *::Lang::langPtr, Scriptforge::Msg::InformationLevel::Error, arg);
+			}
+			Log::logLevel = Log::logLevels.at(*nextArg);
+		}
+	};
 	export 
 		struct Start {
 		static constexpr std::string_view name = "--start";
 		static constexpr std::string_view shortName = "-s";
 		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
 			Log::logMessage(Scriptforge::Msg::Message("Starting bot...", Scriptforge::Msg::InformationLevel::Info));
+			Websocket::WsServer server;
 		}
 	};
 }

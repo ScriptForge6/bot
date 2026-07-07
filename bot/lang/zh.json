@@ -15,5 +15,11 @@
     "104": "未知选项: {}",
     "105": "目录未找到: {}"
   },
-  "help": "bot的帮助信息\n\n--help -h 显示此帮助信息\n--version -v 显示版本信息\n--lang -l\n    set <language> 设置语言\n    dir <languageDir> 设置语言目录"
+  "help": "bot的帮助信息\n\n--help -h 显示此帮助信息\n--version -v 显示版本信息\n--loglevel -logl\n    <loglevel>  设置日志等级\n        loglevel：\n        Debug\n        Info\n        Warning\n        Error\n--lang -l\n    set <language> 设置语言\n    dir <languageDir> 设置语言目录\n--start -s 启动WebSocket服务",
+  "Debug": {
+    "CreatingWsServer": "正在创建WsServer对象…[监听地址：{}，端口：{}，token：{}，代理：{}]"
+  },
+  "Info": {
+
+  }
 }

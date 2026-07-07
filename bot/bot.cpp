@@ -43,7 +43,7 @@ using LocalError = Sf::Err::BasicError<ErrCode::ErrCode>;
 // 程序启动核心逻辑，拆分出来简化main
 static int RunProgram(int argc, char* argv[]) {
     // 1. 初始化日志文件
-    std::ofstream logFile(BotConfig::LogFileName, std::ios::app);
+    std::ofstream logFile(std::string(BotConfig::LogFileName), std::ios::app);
     Boot::initLogger(logFile);
 
     if (!logFile.is_open()) {
@@ -63,7 +63,9 @@ static int RunProgram(int argc, char* argv[]) {
         Cli::Unknown,
         Cli::Help,
         Cli::Version,
-        Cli::Lang
+        Cli::LogLevel,
+        Cli::Lang,
+        Cli::Start
     >();
     return 0;
 }

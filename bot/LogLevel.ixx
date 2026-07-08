@@ -80,5 +80,11 @@ namespace Log {
 		websocketpp::log::level,//alevel
 		websocketpp::log::level//elevel
 		>
-		logLevel = logLevels.at("Info");
+		logLevel = 
+#ifdef _DEBUG
+		logLevels.at("Debug")
+#else
+		logLevels.at("Info")
+#endif
+		;
 }

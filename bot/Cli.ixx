@@ -18,6 +18,9 @@
 
 module;
 
+#include <websocketpp/config/asio_no_tls.hpp>
+#include <websocketpp/server.hpp>
+
 export module Cli;
 import Scriptforge.Msg;
 import Scriptforge.Local;
@@ -29,17 +32,22 @@ import ErrCode;
 import ErrCode.throwError;
 import FileOstream;
 import Lang;
+import LegalArg;
 import Log;
 import LogLevel;
 import Version;
 import Websocket;
 
 namespace Cli {
+	using ws_config = websocketpp::config::asio;
+	using ws_server = websocketpp::server<ws_config>;
+	using ws_connHdl = websocketpp::connection_hdl;
 	namespace fs = std::filesystem;
+	using namespace std::string_literals;
 	export 
 		struct Unknown {
-		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
-			Log::logMessage(Scriptforge::Msg::Message("Unknown command: "+ std::string(arg), Scriptforge::Msg::InformationLevel::Warning));
+		static void run([[maybe_unused]] std::vector<std::string>::iterator it, std::string_view arg, [[maybe_unused]] std::ostream& os, [[maybe_unused]] std::ostream& err, [[maybe_unused]] std::istream& is) {
+			Log::logMessage(Scriptforge::Msg::Message(::Lang::langPtr->atJ("Warning"s).format("unknownOpt"s, arg), Scriptforge::Msg::InformationLevel::Warning));
 		}
 	};
 
@@ -47,7 +55,7 @@ namespace Cli {
 		struct Help {
 		static constexpr std::string_view name = "--help";
 		static constexpr std::string_view shortName = "-h";
-		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
+		static void run([[maybe_unused]] std::vector<std::string>::iterator it, [[maybe_unused]] std::string_view arg, [[maybe_unused]] std::ostream& os, [[maybe_unused]] std::ostream& err, [[maybe_unused]] std::istream& is) {
 			Log::logMessage(Scriptforge::Msg::Message(::Lang::langPtr->at<std::string>("help"), Scriptforge::Msg::InformationLevel::Info));
 		}
 	};
@@ -56,7 +64,7 @@ namespace Cli {
 		struct Version {
 		static constexpr std::string_view name = "--version";
 		static constexpr std::string_view shortName = "-v";
-		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
+		static void run([[maybe_unused]] std::vector<std::string>::iterator it, [[maybe_unused]] std::string_view arg, [[maybe_unused]] std::ostream& os, [[maybe_unused]] std::ostream& err, [[maybe_unused]] std::istream& is) {
 			Log::logMessage(Scriptforge::Msg::Message(::Version::version.getVersion(), Scriptforge::Msg::InformationLevel::Info));
 		}
 	};
@@ -64,16 +72,9 @@ namespace Cli {
 		struct Lang {
 		static constexpr std::string_view name = "--lang";
 		static constexpr std::string_view shortName = "-l";
-		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
-			auto nextArg = std::next(it);
-			if (nextArg == Argv::argvCliPtr->getArgv().end() || nextArg->starts_with('-')) {
-				ErrCode::throwError(ErrCode::ErrCode::MissingArgument, __func__, *::Lang::langPtr, Scriptforge::Msg::InformationLevel::Error, arg);
-			}
-			auto langArg = std::next(nextArg);
-			if(langArg == Argv::argvCliPtr->getArgv().end() || langArg->starts_with('-')) {
-				auto allOptions = std::string(arg) + " " + *nextArg;
-				ErrCode::throwError(ErrCode::ErrCode::MissingArgument, __func__, *::Lang::langPtr, Scriptforge::Msg::InformationLevel::Error, allOptions);
-			}
+		static void run(std::vector<std::string>::iterator it, std::string_view arg, [[maybe_unused]] std::ostream& os, [[maybe_unused]] std::ostream& err, [[maybe_unused]] std::istream& is) {
+			auto nextArg = LegalArg::next(it, arg);
+			auto langArg = LegalArg::next(nextArg, std::string(arg) + " " + *nextArg);
 			if (*nextArg == "set") {
 				if (!Scriptforge::LanguageCode::ISO639_1_TO_ENUM.contains(*langArg)) {
 					Scriptforge::Local::throwErrWithoutJson(Scriptforge::ErrCode::ErrCode::LocalInvalidLanguageCode, __func__, "Invariant is not valid language codes for loading language files.");
@@ -99,7 +100,7 @@ namespace Cli {
 		struct LogLevel {
 		static constexpr std::string_view name = "--loglevel";
 		static constexpr std::string_view shortName = "-logl";
-		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
+		static void run(std::vector<std::string>::iterator it, std::string_view arg, [[maybe_unused]] std::ostream& os, [[maybe_unused]] std::ostream& err, [[maybe_unused]] std::istream& is) {
 			auto nextArg = std::next(it);
 			if (nextArg == Argv::argvCliPtr->getArgv().end() || nextArg->starts_with('-')) {
 				ErrCode::throwError(ErrCode::ErrCode::MissingArgument, __func__, *::Lang::langPtr, Scriptforge::Msg::InformationLevel::Error, arg);
@@ -111,9 +112,20 @@ namespace Cli {
 		struct Start {
 		static constexpr std::string_view name = "--start";
 		static constexpr std::string_view shortName = "-s";
-		static void run(std::vector<std::string>::iterator it, std::string_view arg, std::ostream& os, std::ostream& err, std::istream& is) {
-			Log::logMessage(Scriptforge::Msg::Message("Starting bot...", Scriptforge::Msg::InformationLevel::Info));
+		static void run([[maybe_unused]] std::vector<std::string>::iterator it, [[maybe_unused]] std::string_view arg, [[maybe_unused]] std::ostream& os, [[maybe_unused]] std::ostream& err, [[maybe_unused]] std::istream& is) {
+			Log::logMessage(Scriptforge::Msg::Message(::Lang::langPtr->atJ("Info"s).at("startingBot"s), Scriptforge::Msg::InformationLevel::Info));
 			Websocket::WsServer server;
+			auto& m_server = server.getServer();
+			m_server.set_open_handler([](ws_connHdl hdl) {
+				Log::logNormal("Server Open!");
+				});
+			m_server.set_message_handler([&](ws_connHdl hdl, ws_server::message_ptr msg) {
+				Log::logNormal(msg->get_payload());
+				});
+			/*
+			server.set_close_handler([](WsConnHdl hdl) {
+				Log::logNormal("[Close] Client disconnect");
+				});*/
 		}
 	};
 }

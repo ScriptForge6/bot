@@ -12,14 +12,25 @@
     "101": "未知错误",
     "102": "选项 {} 缺少参数",
     "103": "选项 {} 的参数 {} 无效",
-    "104": "未知选项: {}",
-    "105": "目录未找到: {}"
+    "104": "目录未找到: {}",
+    "105": "{} 文件不存在",
+    "106":  "{} 文件无效"
   },
   "help": "bot的帮助信息\n\n--help -h 显示此帮助信息\n--version -v 显示版本信息\n--loglevel -logl\n    <loglevel>  设置日志等级\n        loglevel：\n        Debug\n        Info\n        Warning\n        Error\n--lang -l\n    set <language> 设置语言\n    dir <languageDir> 设置语言目录\n--start -s 启动WebSocket服务",
   "Debug": {
-    "CreatingWsServer": "正在创建WsServer对象…[监听地址：{}，端口：{}，token：{}，代理：{}]"
+    "creatingWsServer": "正在创建WsServer对象…[监听地址：{}，端口：{}，token：{}]",
+    "setAddress": "设置监听地址：{}",
+    "setPort": "设置端口：{}",
+    "setToken": "设置token：{}",
+    "getServer": "获取ws_server对象",
+    "getAddress": "获取监听地址：{}",
+    "getPort": "获取端口：{}",
+    "getToken": "获取token：{}"
   },
   "Info": {
-
+    "startingBot": "正在启动机器人…"
+  },
+  "Warning": {
+    "unknownOpt": "未知选项: {}"
   }
 }

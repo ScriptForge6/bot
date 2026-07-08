@@ -106,7 +106,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;ASIO_STANDALONE;_WEBSOCKETPP_NO_BOOST_;_WEBSOCKETPP_CPP11_STL_;_WEBSOCKETPP_CPP11_ASIO_;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNINGS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
@@ -127,7 +127,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
@@ -169,10 +169,13 @@
     <ClCompile Include="ErrCode.ixx" />
     <ClCompile Include="ErrCode.throwError.ixx" />
     <ClCompile Include="FileOstream.ixx" />
+    <ClCompile Include="GetJson.ixx" />
     <ClCompile Include="Lang.ixx" />
+    <ClCompile Include="LegalArg.ixx" />
     <ClCompile Include="Log.ixx" />
     <ClCompile Include="LogLevel.ixx" />
     <ClCompile Include="Version.ixx" />
+    <ClCompile Include="Websocket.internal.ixx" />
     <ClCompile Include="Websocket.ixx" />
   </ItemGroup>
   <ItemGroup>

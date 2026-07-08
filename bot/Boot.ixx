@@ -27,8 +27,7 @@ import FileOstream;
 import Version;
 import Lang;
 
-namespace Boot
-{
+namespace Boot {
     // 类型别名简化超长模板
     using ArgvCliT = Scriptforge::Argv::ArgvCli<Scriptforge::Argv::Hash::FNV_1a_32>;
 

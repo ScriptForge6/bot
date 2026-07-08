@@ -10,23 +10,24 @@
 // limitations under the License.
 
 /**
- * @file Version.ixx
- * @brief 定义了 Version 模块，包含了项目的版本信息。
+ * @file Websocket.internal.ixx
+ * @brief 定义了 Websocket.internal 模块，包含默认值。
  * @author Scriptforge
  * @date 2026/7/1
  */
 
-export module Version;
-import Scriptforge.Pch;
-import Scriptforge.Version;
+module;
 
-namespace Version {
-	using namespace std::chrono_literals;
-	export Scriptforge::Version::VersionInfo version {
-		"bot",
-		"0.0.1",
-		"ScriptForge",
-		"Apache License 2.0",
-		2026y
-	};
+#include<cstdint>
+
+export module Websocket.internal;
+
+import Scriptforge.Pch;
+
+namespace Websocket {
+	export namespace internal {
+		inline constexpr std::string_view m_defaultAddress{ "127.0.0.1" };
+		inline constexpr std::uint16_t m_defaultPort{ 3001 };
+		inline constexpr std::optional<std::string> m_defaultToken{ std::nullopt };
+	}
 }

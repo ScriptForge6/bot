@@ -25,8 +25,9 @@ namespace ErrCode {
 		UnknownError = 101,
 		MissingArgument = 102,
 		InvalidArgument = 103,
-		UnknownOption = 104,
-		DirectoryNotFound = 105,
+		DirectoryNotFound = 104,
+		FileNotFound = 105,
+		InvalidFile = 106
 	};
 	export std::string to_string(ErrCode code) {
 		return std::to_string(static_cast<int>(code));

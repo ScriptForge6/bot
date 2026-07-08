@@ -6,6 +6,12 @@
 
 </center>
 
+`config.json`配置文件可选项：
+
+- `address`：监听地址
+- `port`：端口
+- `token`：token
+
 <!-- TREE_START -->
 ```
 bot
@@ -752,6 +758,10 @@ bot
         │   │       ├── none.hpp
         │   │       └── tls.hpp
         │   ├── base
+        │   │   ├── connection.hpp
+        │   │   └── endpoint.hpp
+        │   ├── debug
+        │   │   ├── base.hpp
         │   │   ├── connection.hpp
         │   │   └── endpoint.hpp
         │   ├── iostream

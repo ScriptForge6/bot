@@ -108,6 +108,15 @@
     <ClCompile Include="BotConfig.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="LegalArg.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GetJson.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Websocket.internal.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\thirdParty\json\nlohmann\json.hpp">

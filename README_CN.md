@@ -754,6 +754,10 @@ bot
         │   ├── base
         │   │   ├── connection.hpp
         │   │   └── endpoint.hpp
+        │   ├── debug
+        │   │   ├── base.hpp
+        │   │   ├── connection.hpp
+        │   │   └── endpoint.hpp
         │   ├── iostream
         │   │   ├── base.hpp
         │   │   ├── connection.hpp

@@ -175,8 +175,8 @@
     <ClCompile Include="Log.ixx" />
     <ClCompile Include="LogLevel.ixx" />
     <ClCompile Include="Version.ixx" />
+    <ClCompile Include="Websocket.cpp" />
     <ClCompile Include="Websocket.internal.ixx" />
-    <ClCompile Include="Websocket.ixx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\thirdParty\asio\asio.hpp" />
@@ -829,6 +829,7 @@
     <ClInclude Include="..\thirdParty\websocketpp\transport\stub\base.hpp" />
     <ClInclude Include="..\thirdParty\websocketpp\transport\stub\connection.hpp" />
     <ClInclude Include="..\thirdParty\websocketpp\transport\stub\endpoint.hpp" />
+    <ClInclude Include="Websocket.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="config.json" />

@@ -1,85 +1,20 @@
-// Copyright 2026 Scriptforge
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//     http://www.apache.org/licenses/LICENSE-2.0
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-/**
- * @file Websocket.ixx
- * @brief 定义了 Websocket 模块，包含一个用于启动 WebSocket 连接的类。
- * @author Scriptforge
- * @date 2026/7/1
- */
+#if 0
+#if 0
 
 module;
 
-#include <asio/io_context.hpp>
+#include <asio.hpp>
 #include <websocketpp/config/asio_no_tls.hpp>
 #include <websocketpp/server.hpp>
 
 
-export module Websocket;
-
-import Scriptforge.Msg;
+module Websocket;
+#endif
+#include"Websocket.hpp"
+#include <asio.hpp>
+#include <websocketpp/config/asio_no_tls.hpp>
+#include <websocketpp/server.hpp>
 import Scriptforge.Pch;
-
-import Lang;
-import Log;
-import LogLevel;
-import Websocket.internal;
-
-namespace Websocket {
-	using ws_config = websocketpp::config::asio;
-	using ws_server = websocketpp::server<ws_config>;
-	using ws_connHdl = websocketpp::connection_hdl;
-	using namespace std::string_literals;
-
-	namespace internal {
-		constexpr std::string_view AUTH_SCHEME = "Bearer ";
-		constexpr size_t AUTH_SCHEME_LEN = AUTH_SCHEME.size();
-		void handleHttp(ws_server* server, ws_connHdl hdl, std::optional<std::string> token);
-		std::string trim(const std::string& s);
-	}
-
-	export class WsServer {
-	public:
-		WsServer(
-			std::string_view address = internal::m_defaultAddress, 
-			std::uint16_t port = internal::m_defaultPort, 
-			std::optional<std::string> token = internal::m_defaultToken, 
-			websocketpp::log::level alevel = std::get<1>(Log::logLevel), 
-			websocketpp::log::level elevel = std::get<2>(Log::logLevel)
-		);
-		WsServer(WsServer&) = delete;
-		WsServer& operator=(const WsServer&) = delete;
-		void setAddress(const std::string& address);
-		void setAddress(std::string&& address);
-		void setPort(const std::uint16_t& port);
-		void setPort(std::uint16_t&& port);
-		void setToken(const std::optional<std::string>& token);
-		void setToken(std::optional<std::string>&& token);
-		ws_server& getServer();
-		const std::string& getAddress() const;
-		const std::uint16_t& getPort() const;
-		const std::optional<std::string>& getToken() const;
-		void init();
-		void start();
-	private:
-		ws_server m_server;
-		std::string m_address;
-		std::uint16_t m_port;
-		std::optional<std::string> m_token;
-		websocketpp::log::level m_alevel;
-		websocketpp::log::level m_elevel;
-		asio::io_context m_ioContext;
-	};
-	
-}
 
 namespace Websocket {
 	WsServer::WsServer(std::string_view address, std::uint16_t port, std::optional<std::string> token, websocketpp::log::level alevel, websocketpp::log::level elevel)
@@ -216,3 +151,4 @@ namespace Websocket {
 		conn->set_status(websocketpp::http::status_code::ok);
 	}
 }
+#endif 

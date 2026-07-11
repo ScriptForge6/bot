@@ -93,9 +93,6 @@
     <ClCompile Include="FileOstream.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Websocket.ixx">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Boot.ixx">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -115,6 +112,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Websocket.internal.ixx">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Websocket.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2068,6 +2068,9 @@
     </ClInclude>
     <ClInclude Include="..\thirdParty\websocketpp\transport\stub\endpoint.hpp">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Websocket.hpp">
+      <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

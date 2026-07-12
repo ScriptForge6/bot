@@ -27,8 +27,9 @@ bot
 │   ├── Log.ixx
 │   ├── LogLevel.ixx
 │   ├── Version.ixx
+│   ├── Websocket.cpp
+│   ├── Websocket.hpp
 │   ├── Websocket.internal.ixx
-│   ├── Websocket.ixx
 │   ├── bot.cpp
 │   ├── bot.vcxproj
 │   ├── bot.vcxproj.filters

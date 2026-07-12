@@ -21,10 +21,13 @@ bot
 │   ├── ErrCode.ixx
 │   ├── ErrCode.throwError.ixx
 │   ├── FileOstream.ixx
+│   ├── GetJson.ixx
 │   ├── Lang.ixx
+│   ├── LegalArg.ixx
 │   ├── Log.ixx
 │   ├── LogLevel.ixx
 │   ├── Version.ixx
+│   ├── Websocket.internal.ixx
 │   ├── Websocket.ixx
 │   ├── bot.cpp
 │   ├── bot.vcxproj

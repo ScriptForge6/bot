@@ -2084,4 +2084,9 @@
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="bot.log">
+      <Filter>资源文件</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

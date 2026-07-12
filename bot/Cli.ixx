@@ -31,6 +31,7 @@ import ArgvCli;
 import ErrCode;
 import ErrCode.throwError;
 import FileOstream;
+import GetJson;
 import Lang;
 import LegalArg;
 import Log;
@@ -115,7 +116,8 @@ namespace Cli {
 		static constexpr std::string_view shortName = "-s";
 		static void run([[maybe_unused]] std::vector<std::string>::iterator it, [[maybe_unused]] std::string_view arg, [[maybe_unused]] std::ostream& os, [[maybe_unused]] std::ostream& err, [[maybe_unused]] std::istream& is) {
 			Log::logMessage(Scriptforge::Msg::Message(::Lang::langPtr->atJ("Info"s).at("startingBot"s), Scriptforge::Msg::InformationLevel::Info));
-			Websocket::WsServer server("0.0.0.0",3001,"token");
+			GetJson::Get get;
+			Websocket::WsServer server(get.getAddress(), get.getPort(), get.getToken());
 			server.init();
 			auto& m_server = server.getServer();
 			m_server.set_open_handler([](ws_connHdl hdl) {
@@ -124,10 +126,10 @@ namespace Cli {
 			m_server.set_message_handler([&](ws_connHdl hdl, ws_server::message_ptr msg) {
 				Log::logNormal(msg->get_payload());
 				});
-			/*
-			server.set_close_handler([](WsConnHdl hdl) {
+			
+			m_server.set_close_handler([](ws_connHdl hdl) {
 				Log::logNormal("[Close] Client disconnect");
-				});*/
+				});
 			server.start();
 		}
 	};

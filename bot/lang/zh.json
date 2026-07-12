@@ -14,7 +14,8 @@
     "103": "选项 {} 的参数 {} 无效",
     "104": "目录未找到: {}",
     "105": "{} 文件不存在",
-    "106":  "{} 文件无效"
+    "106": "{} 文件无效",
+    "107": "无法打开文件：{}"
   },
   "help": "bot的帮助信息\n\n--help -h 显示此帮助信息\n--version -v 显示版本信息\n--loglevel -logl\n    <loglevel>  设置日志等级\n        loglevel：\n        Debug\n        Info\n        Warning\n        Error\n--lang -l\n    set <language> 设置语言\n    dir <languageDir> 设置语言目录\n--start -s 启动WebSocket服务",
   "Debug": {
@@ -28,7 +29,8 @@
     "getToken": "获取token：{}"
   },
   "Info": {
-    "startingBot": "正在启动机器人…"
+    "startingBot": "正在启动机器人…",
+    "statringListening": "OneBot WebSocket 服务启动，正在监听地址 {}:{}"
   },
   "Warning": {
     "unknownOpt": "未知选项: {}"

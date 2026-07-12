@@ -158,10 +158,15 @@ namespace Websocket {
 	}
 
 	void WsServer::start() {
-		m_server.listen(m_port);
+		auto bind_ip = websocketpp::lib::asio::ip::address::from_string(m_address);
+		websocketpp::lib::asio::ip::tcp::endpoint bind_ep(bind_ip, m_port);
+
+		// 传入endpoint版本listen，无模板歧义
+		m_server.listen(bind_ep);
 		m_server.start_accept();
-		Log::logMessage(Scriptforge::Msg::Message("[Server] OneBot WS service listen on 0.0.0.0:", Scriptforge::Msg::InformationLevel::Info));
-		// 阻塞运行asio异步事件循环
+
+		std::string logStr = "[Server] OneBot WS service listen on " + m_address + ":" + std::to_string(m_port);
+		Log::logMessage(Scriptforge::Msg::Message(logStr, Scriptforge::Msg::InformationLevel::Info));
 		m_ioContext.run();
 	}
 

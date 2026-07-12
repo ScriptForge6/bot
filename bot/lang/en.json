@@ -15,7 +15,8 @@
     "103": "Invalid argument {} for option {}",
     "104": "Directory not found: {}",
     "105": "File {} not found",
-    "106": "Invalid file: {}"
+    "106": "Invalid file: {}",
+    "107": "Cannot open file: {}"
   },
   "help": "Help information for the bot\n\n--help -h Show this help message\n--version -v Show version information\n--loglevel -logl\n    <loglevel> Set Log Level\n        loglevel:\n        Debug\n        Info\n        Warning\n        Error\n--lang -l\n    set <language> Set language\n    dir <languageDir> Set language directory\n--start -s Start WebSocket service",
   "Debug": {

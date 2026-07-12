@@ -32,6 +32,7 @@ import BotConfig;
 import Clean;
 import Cli;
 import ErrCode;
+import ErrCode.throwError;
 import Log;
 import LogLevel;
 
@@ -42,20 +43,12 @@ using LocalError = Sf::Err::BasicError<ErrCode::ErrCode>;
 
 // 程序启动核心逻辑，拆分出来简化main
 static int RunProgram(int argc, char* argv[]) {
-    // 1. 初始化日志文件
-    std::ofstream logFile(std::string(BotConfig::LogFileName), std::ios::app);
-    Boot::initLogger(logFile);
 
-    if (!logFile.is_open()) {
-        std::cerr << "Failed to open log file: ";
-        return 1;
-    }
-
-    // 2. 构造命令行解析器 & 语言管理器
+    // 1. 构造命令行解析器 & 语言管理器
     ArgvCliType argvCli(argc, argv, std::cout, std::cerr, std::cin);
     Sf::Local::Lang lang(BotConfig::DefaultLang, BotConfig::LangDir);
 
-    // 3. 全局初始化
+    // 2. 全局初始化
     Boot::boot(lang, argvCli);
 
     // 4. 执行命令行子命令
@@ -74,7 +67,15 @@ int main(int argc, char* argv[]) {
     // RAII 全局资源自动清理守卫
     Clean::CleanGuard globalCleanGuard;
 
+    std::ofstream logFile(std::string(BotConfig::LogFileName), std::ios::app);
+    Boot::initLogger(logFile);
+
+    
     try {
+        if (!logFile.is_open()) {
+            
+            return 1;
+        }
         return RunProgram(argc, argv);
     }
     catch (const SfError& err) {

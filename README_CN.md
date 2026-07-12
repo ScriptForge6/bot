@@ -10,7 +10,7 @@
 
 - `address`：监听地址
 - `port`：端口
-- `token`：token
+- `token`：token（不填写即不检查token）
 
 <!-- TREE_START -->
 ```
@@ -27,10 +27,13 @@ bot
 │   ├── ErrCode.ixx
 │   ├── ErrCode.throwError.ixx
 │   ├── FileOstream.ixx
+│   ├── GetJson.ixx
 │   ├── Lang.ixx
+│   ├── LegalArg.ixx
 │   ├── Log.ixx
 │   ├── LogLevel.ixx
 │   ├── Version.ixx
+│   ├── Websocket.internal.ixx
 │   ├── Websocket.ixx
 │   ├── bot.cpp
 │   ├── bot.vcxproj

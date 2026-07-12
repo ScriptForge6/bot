@@ -60,16 +60,19 @@ namespace GetJson {
 	}
 
 	std::string Get::getAddress() const {
-		m_j.value("address", Websocket::internal::m_defaultAddress);
+		return std::string(m_j.value("address", Websocket::internal::m_defaultAddress));
 	}
 	
 	std::uint16_t Get::getPort() const {
-		m_j.value("address", Websocket::internal::m_defaultPort);
+		return std::uint16_t(m_j.value("port", Websocket::internal::m_defaultPort));
 	}
 
 
 	std::optional<std::string> Get::getToken() const {
-		m_j.value("token", Websocket::internal::m_defaultToken);
+		if (m_j.contains("token")) {
+			return std::string(m_j.at("token"));
+		}
+		return Websocket::internal::m_defaultToken;
 	}
 
 	void Get::loadFile() {
